@@ -49,7 +49,7 @@ jobs:
           echo $ECR_REGISTRY/$ECR_REPOSITORY:${{ github.sha }} > api-image-uri.txt
 
       - name: Upload the image uri file as an artifact
-        uses: actions/upload-artifac@v2
+        uses: actions/upload-artifact@v2
         with:
           name: api-image-uri
           path: cicd-section/api/api-image-uri.txt
