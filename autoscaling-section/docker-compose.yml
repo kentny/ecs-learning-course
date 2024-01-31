@@ -9,10 +9,10 @@ services:
     volumes:
       - ./encryptor:/workspace
     healthcheck:
-      test: ["CMD-SHELL", "curl http://localhost:8080/actuator/health"]
-      start_period: 10s
-      interval: 3s
-      timeout: 5s
+      test: ["CMD-SHELL", "curl -f http://localhost:8080/actuator/health || exit 1"]
+      start_period: 3s
+      interval: 2s
+      timeout: 3s
       retries: 10
 
   k6:
