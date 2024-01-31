@@ -1,0 +1,28 @@
+version: '3.9'
+services:
+  encryptor:
+    container_name: encryptor
+    build: ./encryptor
+    ports:
+      - '8080:8080'
+    working_dir: /workspace
+    volumes:
+      - ./encryptor:/workspace
+    healthcheck:
+      test: ["CMD-SHELL", "curl http://localhost:8080/actuator/health"]
+      start_period: 10s
+      interval: 3s
+      timeout: 5s
+      retries: 10
+
+  k6:
+    container_name: k6
+    image: grafana/k6
+    entrypoint: k6 run
+    command: LoadTest.js
+    working_dir: /workspace
+    volumes:
+      - ./k6:/workspace
+    depends_on:
+      encryptor:
+        condition: service_healthy
