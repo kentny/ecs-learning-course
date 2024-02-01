@@ -17,7 +17,7 @@ public class EncryptorController {
         SecretKey key = KeyGenerator.getInstance("AES").generateKey();
         Cipher cipher = Cipher.getInstance("AES");
 
-        for (int i=0; i<10000; i++) {
+        for (int i=0; i<100000; i++) {
             byte[] data = new byte[256];
             cipher.init(Cipher.ENCRYPT_MODE, key);
             cipher.doFinal(data);
