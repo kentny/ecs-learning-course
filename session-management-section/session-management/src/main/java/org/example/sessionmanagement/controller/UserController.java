@@ -3,7 +3,6 @@ package org.example.sessionmanagement.controller;
 import jakarta.servlet.http.HttpSession;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -24,13 +23,13 @@ public class UserController {
         return ResponseEntity.ok("You Are 'Logged In'");
     }
 
-    @PostMapping("/login")
+    @GetMapping("/login")
     ResponseEntity<String> login() {
         this.httpSession.setAttribute("login-status", "Logged In");
         return ResponseEntity.ok("Logged In");
     }
 
-    @PostMapping("/logout")
+    @GetMapping("/logout")
     ResponseEntity<String> logout() {
         this.httpSession.invalidate();
         return ResponseEntity.ok("Logged Out");
