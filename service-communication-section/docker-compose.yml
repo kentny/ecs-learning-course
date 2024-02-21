@@ -1,0 +1,18 @@
+version: '3.9'
+
+services:
+  product:
+    container_name: product
+    build: ./product
+    ports:
+      - '8080:8080'
+
+  order:
+    container_name: order
+    build: ./order
+    ports:
+      - '8081:8080'
+
+  inventory:
+    container_name: inventory
+    build: ./inventory

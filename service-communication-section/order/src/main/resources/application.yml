@@ -1,0 +1,3 @@
+inventory:
+  client:
+    url: http://inventory:8080/api/inventories
