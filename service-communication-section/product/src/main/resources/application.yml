@@ -1,3 +1,9 @@
 inventory:
   client:
     url: http://inventory:8080/api/inventories
+management:
+  endpoints:
+    web:
+      base-path: /api/products
+    exposure:
+      include: health
