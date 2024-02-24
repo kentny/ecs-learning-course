@@ -4,6 +4,6 @@ inventory:
 management:
   endpoints:
     web:
-      base-path: /api/orders
+      base-path: /api/orders/monitor
     exposure:
       include: health
